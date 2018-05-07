@@ -56,7 +56,7 @@ describe Spree::BaseHelper, type: :helper do
 
     before do
       Spree::Image.class_eval do
-        attachment_definitions[:attachment][:styles].merge!(very_strange: '1x1')
+        styles.merge!(very_strange: '1x1')
       end
     end
 
@@ -118,7 +118,7 @@ describe Spree::BaseHelper, type: :helper do
 
     before do
       Spree::Image.class_eval do
-        attachment_definitions[:attachment][:styles].merge!(foobar: '1x1')
+        styles.merge!(foobar: '1x1')
       end
     end
 

@@ -25,6 +25,8 @@ module Spree
 
     before do
       stub_authentication!
+      allow(ENV).to receive(:[]).and_call_original
+      allow(ENV).to receive(:[]).with(:USE_PAPERCLIP).and_return(true)
     end
 
     it 'cannot view all orders' do
