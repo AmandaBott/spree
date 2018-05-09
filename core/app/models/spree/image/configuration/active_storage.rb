@@ -3,8 +3,12 @@ module Spree
     module Configuration
       module ActiveStorage
         extend ActiveSupport::Concern
+        include ::Spree::AttachmentValidation
 
         included do
+          validate :check_attachment_presence
+          validate :check_attachment_content_type
+
           has_one_attached :attachment
 
           def self.styles
@@ -18,6 +22,17 @@ module Spree
 
           def default_style
             :product
+          end
+
+          def accepted_image_types
+            %w(image/jpeg image/jpg image/png image/gif)
+          end
+
+          def check_attachment_presence
+            unless attachment.attached?
+              attachment.purge
+              errors.add(:attachment, :attachment_must_be_present)
+            end
           end
         end
       end

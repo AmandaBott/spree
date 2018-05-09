@@ -16,6 +16,10 @@ end
 # from the project root directory.
 ENV['RAILS_ENV'] ||= 'test'
 
+# Stub test for paperclip, for transitional period
+# Rewrite test for ActiveStorage after Paperclip will be removed
+ENV['USE_PAPERCLIP'] ||= 'test'
+
 begin
   require File.expand_path('../dummy/config/environment', __FILE__)
 rescue LoadError

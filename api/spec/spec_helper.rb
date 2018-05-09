@@ -14,6 +14,10 @@ end
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV['RAILS_ENV'] ||= 'test'
 
+# Stub test for paperclip, for transitional period
+# Rewrite test for ActiveStorage after Paperclip will be removed
+ENV['USE_PAPERCLIP'] ||= 'test'
+
 begin
   require File.expand_path('../dummy/config/environment', __FILE__)
 rescue LoadError
