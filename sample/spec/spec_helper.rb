@@ -1,6 +1,10 @@
 # This file is copied to ~/spec when you run 'ruby script/generate rspec'
 # from the project root directory.
 ENV['RAILS_ENV'] ||= 'test'
+# Stub test for paperclip, for transitional period
+# Rewrite test for ActiveStorage after Paperclip will be removed
+ENV['USE_PAPERCLIP'] ||= 'test'
+
 require File.expand_path('../dummy/config/environment', __FILE__)
 require 'rspec/rails'
 require 'ffaker'
